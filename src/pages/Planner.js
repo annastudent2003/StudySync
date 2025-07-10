@@ -35,8 +35,9 @@ setFormData({ mood: '', goals: '', priorities: '', schedule: '', notes: '' });
 };
 
 useEffect(() => {
-loadData();
-}, [selectedDate]);
+  loadData();
+}, [loadData]);
+
 
 useEffect(() => {
 const fetchWeather = async () => {
