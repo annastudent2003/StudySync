@@ -2,7 +2,7 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-Used: React.js, CSS, API, Bootstrap, JSX (HTML).
+Used: React.js, CSS, API, Bootstrap, JSX (HTML), JavaScript.
 
 Website Link: https://studysyncplanner.netlify.app/
 
