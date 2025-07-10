@@ -24,19 +24,20 @@ setShowSaved(true);
 setTimeout(() => setShowSaved(false), 2000);
 };
 
-const loadData = () => {
-const stored = JSON.parse(localStorage.getItem('plannerData')) || {};
-if (stored[selectedDate]) {
-const { mood, goals, priorities, schedule, notes } = stored[selectedDate];
-setFormData({ mood, goals, priorities, schedule, notes });
-} else {
-setFormData({ mood: '', goals: '', priorities: '', schedule: '', notes: '' });
-}
-};
-
 useEffect(() => {
+  const loadData = () => {
+    const today = new Date().toISOString().split('T')[0];
+    const stored = JSON.parse(localStorage.getItem('plannerData')) || {};
+    if (stored[today]) {
+      setTopPriorities(stored[today].priorities || '');
+      setSchedule(stored[today].schedule || '');
+      setGoals(stored[today].goals || '');
+    }
+  };
+
   loadData();
-}, [loadData]);
+}, []);
+
 
 
 useEffect(() => {
