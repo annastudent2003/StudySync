@@ -8,7 +8,8 @@ const Dashboard = () => {
   const [time, setTime] = useState(new Date());
   const [studyMinutes, setStudyMinutes] = useState(0);
 
-const [breakMinutes, setBreakMinutes] = useState(0);
+const [breakMinutes] = useState(0); 
+
 
  const [priorities, setPriorities] = useState([]);
   const [schedule, setSchedule] = useState('');
