@@ -24,19 +24,24 @@ setShowSaved(true);
 setTimeout(() => setShowSaved(false), 2000);
 };
 
-useEffect(() => {
-  const loadData = () => {
-    const today = new Date().toISOString().split('T')[0];
-    const stored = JSON.parse(localStorage.getItem('plannerData')) || {};
-    if (stored[today]) {
-      setTopPriorities(stored[today].priorities || '');
-      setSchedule(stored[today].schedule || '');
-      setGoals(stored[today].goals || '');
-    }
-  };
+const Planner = () => {
+  const [topPriorities, setTopPriorities] = useState('');
+  const [schedule, setSchedule] = useState('');
+  const [goals, setGoals] = useState('');
 
-  loadData();
-}, []);
+  useEffect(() => {
+    const loadData = () => {
+      const today = new Date().toISOString().split('T')[0];
+      const stored = JSON.parse(localStorage.getItem('plannerData')) || {};
+      if (stored[today]) {
+        setTopPriorities(stored[today].priorities || '');
+        setSchedule(stored[today].schedule || '');
+        setGoals(stored[today].goals || '');
+      }
+    };
+
+    loadData();
+  }, []);
 
 
 
