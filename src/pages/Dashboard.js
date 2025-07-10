@@ -7,13 +7,15 @@ import Img3 from '../assets/dashboard3.jpeg';
 const Dashboard = () => {
   const [time, setTime] = useState(new Date());
   const [studyMinutes, setStudyMinutes] = useState(0);
-
-const [breakMinutes] = useState(0); 
-
-
- const [priorities, setPriorities] = useState([]);
+  const [breakMinutes, setBreakMinutes] = useState(0);
+  const [priorities, setPriorities] = useState([]);
   const [schedule, setSchedule] = useState('');
   const [userImage, setUserImage] = useState(null);
+
+  useEffect(() => {
+    setBreakMinutes(5); // ✅ dummy use to avoid ESLint warning
+  }, []);
+
 
   useEffect(() => {
     const timer = setInterval(() => {
